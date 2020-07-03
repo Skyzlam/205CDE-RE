@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Venum</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+
+
+article {
+  float: left;
+  padding: 20px;
+  width: 75%;
+  background-color: #e6e6ff;
+  height: 400px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+
+</head>
+<body>
+<section>
+	<header>
+  		<h2>Venum</h2>
+	</header>
+	<nav>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <a class="navbar-brand" href="http://localhost:8000/"><img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG5WgEH9FJkkw/company-logo_200_200/0?e=2159024400&v=beta&t=uBQXZXUx7oOTGKqK06iRKto-NO1X6f6306MdW-SxNpE" style="width:50px;"></a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <li><a class="nav-link" href="http://localhost:8000/">About Us</a>
+          </li>
+          <li class="nav-item">
+            <li><a class="nav-link" href="http://localhost:8000/clothes">Products</a>
+          </li>
+          <li class="nav-item">
+            <li><a class="nav-link" href="http://localhost:8000/login">Login</a>
+          </li> 
+          
+          
+
+        </ul>
+          
+    </nav>
+  	<article>
+	<form action = "http://localhost:8000/logout" method = "POST">
+  <div class="row ">
+   {% for item in customerinfo %}
+    <div class="col-12" >
+      <p><h3>Welcome {{item[1]}}</h3></p>
+
+      <div id="list_of_product">
+
+    
+        <div class="row">
+          <div class="col-sm-4 col-xl-2  ">
+            <p><img src="/static/image/user.png" class="product_photo" style=" height: 100% ;width:100%"></p>
+          </div>
+
+              <tr>
+                <td>Your ID: {{item[0]}}</td><br>
+                <td>Your User Name: {{item[1]}}</td><br>
+                <td>Your Email: {{item[2]}}</td><br>
+                <td>Your Phone No.: {{item[3]}} </td><br>
+                
+                <hr style="height:1px;border-top:1px solid #f00" /><br>
+
+                <p><Button type="submit" class="btn btn-primary" id="register_submit">Logout</Button></p>
+
+                </form>
+              </tr>
+
+              <br>
+              
+              {% endfor %}
+            
+
+
+      </div>
+      <br>
+      </div>
+  </div>   
+    </div>
+  </div> 
+  </div>
+</div> 
+
+</article>
+</section>
+<footer>
+  <p>Venum copyright</p>
+</footer>
+</body>
+</html>
